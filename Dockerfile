@@ -11,6 +11,6 @@ FROM alpine:latest
 COPY --from=build /home/node/.npm-global/bin/elm /usr/local/bin
 COPY --from=build /home/node/.npm-global/bin/elm-test /usr/local/bin
 
-ENTRYPOINT ["sh"]
+ENTRYPOINT ["elm"]
 
-CMD ["elm --version"]
+CMD ["--version"]
