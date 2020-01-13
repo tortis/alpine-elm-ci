@@ -1,16 +1,9 @@
-FROM node:latest as build
+FROM node:lts-alpine
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+ENV PATH="/home/node/.npm-global/bin:${PATH}"
 
 USER node
 RUN npm install --global elm elm-test
 
-
-FROM alpine:latest
-
-COPY --from=build /home/node/.npm-global/bin/elm /usr/local/bin
-COPY --from=build /home/node/.npm-global/bin/elm-test /usr/local/bin
-
-ENTRYPOINT ["elm"]
-
-CMD ["--version"]
+ENTRYPOINT ["/bin/sh"]
