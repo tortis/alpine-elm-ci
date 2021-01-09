@@ -4,6 +4,6 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH="/home/node/.npm-global/bin:${PATH}"
 
 USER node
-RUN npm install --global elm elm-test
+RUN npm install --global elm elm-test create-elm-app
 
 ENTRYPOINT ["/bin/sh"]
